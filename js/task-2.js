@@ -7,11 +7,20 @@ class Storage {
     return this.#items;
   }
   addItem(newItem) {
-    return this.#items.push(newItem);
+    this.#items.push(newItem);
   }
   removeItem(itemToRemove) {
-    return this.#items.splice(this.#items.indexOf(itemToRemove), 1);
+    if (this.#items.includes(itemToRemove)) {
+    this.#items.splice(this.#items.indexOf(itemToRemove), 1)  
+    }
   }
+  // alternative removeItem method
+  // removeItem(itemToRemove) {
+  //   const indexDeletedItem = this.#items.indexOf(itemToRemove);
+  //   if (indexDeletedItem !== -1) {
+  //     this.#items.splice(indexDeletedItem, 1);
+  //   }
+  // }
 }
 
 const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
